@@ -45,7 +45,7 @@ export default function ProcessPage() {
             A calm, collaborative onboarding experience from day one.
           </h1>
           <p className="mt-5 max-w-3xl text-lg text-slate-300">
-            Harper Ledger delivers a structured, transparent process so you always know what happens next. From
+            AG  Ledger delivers a structured, transparent process so you always know what happens next. From
             intake to your first close, every milestone is documented and communicated.
           </p>
         </div>

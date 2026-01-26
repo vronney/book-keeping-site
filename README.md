@@ -1,6 +1,6 @@
 # book-keeping-site
 
-Marketing site and API for Harper Ledger bookkeeping services.
+Marketing site and API for AG  Ledger bookkeeping services.
 
 ## Frontend (Next.js)
 

@@ -13,7 +13,7 @@ export default function HomePage() {
               Clear financials, confident decisions, and calm month-end closes.
             </h1>
             <p className="mt-5 text-lg text-slate-300">
-              Harper Ledger keeps your books clean, your cash flow visible, and your tax season stress-free. Get
+              AG  Ledger keeps your books clean, your cash flow visible, and your tax season stress-free. Get
               monthly reconciliations, custom dashboards, and proactive support tailored to your business.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -64,7 +64,7 @@ export default function HomePage() {
               ))}
             </div>
             <div className="mt-8 rounded-2xl bg-slate-950/70 p-5 text-sm text-slate-300">
-              "Harper Ledger helped us see our runway and cut expenses within 30 days. I finally trust our numbers."
+              "AG  Ledger helped us see our runway and cut expenses within 30 days. I finally trust our numbers."
               <p className="mt-3 text-xs uppercase tracking-wide text-emerald-200">
                 — Amina J., Creative Agency Founder
               </p>
@@ -76,9 +76,9 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <h2 className="text-3xl font-semibold">About Harper Ledger</h2>
+            <h2 className="text-3xl font-semibold">About AG  Ledger</h2>
             <p className="mt-4 text-slate-300">
-              Harper Ledger is a boutique bookkeeping studio supporting founders across wellness, SaaS, and
+              AG  Ledger is a boutique bookkeeping studio supporting founders across wellness, SaaS, and
               professional services. Each engagement includes clean bookkeeping, thoughtful insights, and simple
               workflows to keep you focused on growth.
             </p>
@@ -108,7 +108,7 @@ export default function HomePage() {
             </ul>
             <div className="mt-6 rounded-2xl bg-slate-950/60 p-5">
               <p className="text-sm text-slate-300">
-                "Harper brought order to our finances and built a reporting cadence our team relies on every week."
+                "AG  brought order to our finances and built a reporting cadence our team relies on every week."
               </p>
               <p className="mt-3 text-xs uppercase tracking-wide text-emerald-200">— Devon R., SaaS COO</p>
             </div>
@@ -152,11 +152,10 @@ export default function HomePage() {
             ].map((plan) => (
               <article
                 key={plan.title}
-                className={`rounded-3xl border p-6 ${
-                  plan.highlight
-                    ? "border-emerald-400 bg-emerald-400/10"
-                    : "border-slate-800 bg-slate-950/70"
-                }`}
+                className={`rounded-3xl border p-6 ${plan.highlight
+                  ? "border-emerald-400 bg-emerald-400/10"
+                  : "border-slate-800 bg-slate-950/70"
+                  }`}
               >
                 <h3 className="text-xl font-semibold">{plan.title}</h3>
                 <p className="mt-3 text-sm text-slate-300">{plan.body}</p>
@@ -213,13 +212,13 @@ export default function HomePage() {
               </p>
               <div className="mt-8 space-y-4 text-sm text-slate-300">
                 <p>
-                  <span className="text-emerald-200">Email:</span> hello@harperledger.com
+                  <span className="text-emerald-200">Email:</span> hello@AG ledger.com
                 </p>
                 <p>
                   <span className="text-emerald-200">Phone:</span> (512) 555-0192
                 </p>
                 <p>
-                  <span className="text-emerald-200">Location:</span> Austin, Texas · Serving US remote teams
+                  <span className="text-emerald-200">Location:</span> San Antonio, Texas · Serving US remote teams
                 </p>
               </div>
             </div>

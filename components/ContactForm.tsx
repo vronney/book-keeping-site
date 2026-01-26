@@ -65,7 +65,7 @@ export default function ContactForm() {
         <input
           className="mt-2 w-full rounded-xl border border-slate-800 bg-slate-900/80 px-4 py-3 text-sm text-slate-100 focus:border-emerald-400 focus:outline-none"
           id="business-name"
-          placeholder="Harper & Co. Studio"
+          placeholder="AG  & Co. Studio"
           type="text"
           value={draft.businessName}
           onChange={(event) => updateField("businessName", event.target.value)}

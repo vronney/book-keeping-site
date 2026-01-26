@@ -57,7 +57,7 @@ export default function ServicesPage() {
             Bookkeeping services that keep your finances clean, compliant, and insightful.
           </h1>
           <p className="mt-5 max-w-3xl text-lg text-slate-300">
-            Every service is tailored to your size, industry, and tools. Harper Ledger focuses on monthly
+            Every service is tailored to your size, industry, and tools. AG  Ledger focuses on monthly
             bookkeeping, reporting, and advisory so you always know where your business stands.
           </p>
         </div>
@@ -82,7 +82,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-3xl font-semibold">Advisory + reporting</h2>
           <p className="mt-4 max-w-3xl text-slate-300">
-            Beyond clean books, Harper Ledger provides insight so you can forecast, plan, and lead with clarity.
+            Beyond clean books, AG  Ledger provides insight so you can forecast, plan, and lead with clarity.
           </p>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {advisoryServices.map((service) => (

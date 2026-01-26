@@ -38,7 +38,7 @@ export default function SiteHeader() {
             </svg>
           </button>
           <Link className="text-lg font-semibold tracking-wide text-white" href="/">
-            Harper Ledger
+            AG Ledger
           </Link>
         </div>
         <div className="hidden items-center gap-8 text-sm font-medium text-white md:flex">

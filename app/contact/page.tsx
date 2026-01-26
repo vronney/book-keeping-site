@@ -35,13 +35,13 @@ export default function ContactPage() {
               </p>
               <div className="mt-4 space-y-2 text-sm text-slate-300">
                 <p>
-                  <span className="text-emerald-200">Email:</span> hello@harperledger.com
+                  <span className="text-emerald-200">Email:</span> hello@AG ledger.com
                 </p>
                 <p>
                   <span className="text-emerald-200">Phone:</span> (512) 555-0192
                 </p>
                 <p>
-                  <span className="text-emerald-200">Location:</span> Austin, Texas · Serving US remote teams
+                  <span className="text-emerald-200">Location:</span> San Antonio, Texas · Serving US remote teams
                 </p>
               </div>
             </div>

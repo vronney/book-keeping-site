@@ -5,7 +5,7 @@ import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
 
 export const metadata: Metadata = {
-  title: "Harper Ledger | Bookkeeping Services",
+  title: "AG  Ledger | Bookkeeping Services",
   description: "Bookkeeping and advisory services for modern founders."
 };
 
