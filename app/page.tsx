@@ -6,7 +6,7 @@ export default function HomePage() {
     <main>
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-slate-900 to-slate-950"></div>
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center">
+        <div className="relative mx-auto grid max-w-6xl gap-12 px-6 pb-20 pt-32 md:grid-cols-2 md:items-center">
           <div>
             <p className="text-sm uppercase tracking-[0.3em] text-emerald-300">Bookkeeping for modern founders</p>
             <h1 className="mt-6 text-4xl font-semibold leading-tight md:text-5xl">

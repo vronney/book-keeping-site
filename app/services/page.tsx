@@ -51,7 +51,7 @@ export default function ServicesPage() {
     <main>
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-slate-900 to-slate-950"></div>
-        <div className="relative mx-auto max-w-6xl px-6 py-20">
+        <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-32">
           <p className="text-sm uppercase tracking-[0.3em] text-emerald-300">Services</p>
           <h1 className="mt-6 text-4xl font-semibold leading-tight md:text-5xl">
             Bookkeeping services that keep your finances clean, compliant, and insightful.
