@@ -1,0 +1,188 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Enums
+enum Role {
+  ADMIN
+  STAFF
+}
+
+enum LeadStatus {
+  NEW
+  QUALIFIED
+  DISQUALIFIED
+  CONTACTED
+  CALL_SCHEDULED
+  CONVERTED
+}
+
+enum DisqualReason {
+  BELOW_REVENUE
+  NOT_A_FIT
+  NO_RESPONSE
+  DUPLICATE
+  OTHER
+}
+
+enum AccSoftware {
+  QUICKBOOKS
+  XERO
+  WAVE
+  NONE
+  OTHER
+}
+
+enum MeetingType {
+  DISCOVERY
+}
+
+enum BookingStatus {
+  BOOKED
+  CANCELED
+}
+
+// Models
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String
+  role          Role
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  lastLoginAt   DateTime?
+
+  // Relations
+  notes         Note[]
+  configUpdates ScheduleConfig[]
+  auditLogs     AuditLog[]
+
+  @@map("users")
+}
+
+model Lead {
+  id                  String         @id @default(uuid())
+  status              LeadStatus     @default(NEW)
+  disqualReason       DisqualReason?
+  qualified           Boolean        @default(false)
+  qualificationReason String?
+  archivedAt          DateTime?
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+
+  // Relations
+  intake   LeadIntake?
+  notes    Note[]
+  bookings Booking[]
+
+  @@index([status])
+  @@index([createdAt])
+  @@map("leads")
+}
+
+model LeadIntake {
+  id                   String       @id @default(uuid())
+  leadId               String       @unique
+  fullName             String
+  email                String
+  phone                String
+  businessName         String
+  entityType           String
+  state                String
+  industry             String
+  monthlyRevenueAmount Decimal      @db.Decimal(15, 2)
+  monthlyRevenueRange  String
+  transactionsPerMonth String
+  accountingSoftware   AccSoftware
+  employeesCount       Int
+  contractorsCount     Int
+  bankAccountsCount    Int
+  creditCardsCount     Int
+  catchUpNeeded        Boolean
+  lastReconciledMonth  DateTime?
+  monthsBehind         Int
+  bankStatementsAccess Boolean
+  priorBooksAvailable  Boolean
+  cpaName              String?
+  cpaEmail             String?
+  preferredStartDate   DateTime
+  consentContact       Boolean
+  consentTerms         Boolean
+  createdAt            DateTime     @default(now())
+
+  // Relations
+  lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@index([email])
+  @@map("lead_intakes")
+}
+
+model Note {
+  id           String   @id @default(uuid())
+  leadId       String
+  authorUserId String
+  body         String
+  createdAt    DateTime @default(now())
+
+  // Relations
+  lead   Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  author User @relation(fields: [authorUserId], references: [id], onDelete: Restrict)
+
+  @@index([leadId])
+  @@map("notes")
+}
+
+model Booking {
+  id          String        @id @default(uuid())
+  leadId      String
+  startAtUtc  DateTime
+  endAtUtc    DateTime
+  timezone    String
+  meetingType MeetingType   @default(DISCOVERY)
+  status      BookingStatus @default(BOOKED)
+  createdAt   DateTime      @default(now())
+
+  // Relations
+  lead Lead @relation(fields: [leadId], references: [id], onDelete: Cascade)
+
+  @@index([startAtUtc])
+  @@index([leadId])
+  @@map("bookings")
+}
+
+model ScheduleConfig {
+  id                     String   @id @default(uuid())
+  meetingDurationMinutes Int      @default(30)
+  timezoneDefault        String   @default("UTC")
+  businessHoursJson      Json
+  updatedAt              DateTime @updatedAt
+  updatedByUserId        String?
+
+  // Relations
+  updatedBy User? @relation(fields: [updatedByUserId], references: [id])
+
+  @@map("schedule_config")
+}
+
+model AuditLog {
+  id           String   @id @default(uuid())
+  actorUserId  String?
+  actionType   String
+  targetType   String
+  targetId     String?
+  metadataJson Json?
+  createdAt    DateTime @default(now())
+
+  // Relations
+  actor User? @relation(fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([createdAt])
+  @@index([actorUserId])
+  @@map("audit_logs")
+}
