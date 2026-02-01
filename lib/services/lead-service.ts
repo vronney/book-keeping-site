@@ -88,8 +88,7 @@ export class LeadService {
         const skip = (page - 1) * limit;
 
         const where: Prisma.LeadWhereInput = {
-            archivedAt: params.archived ? { not: null } : null, // Default to active leads unless archived requested? Or should archived be explicitly null if not asked? 
-            // Requirement says 'Add archived filter'. Usually defaults to active.
+            // Add archived filter - defaults to active leads (archivedAt: null) unless explicitly requested
             ...(params.archived === true ? { archivedAt: { not: null } } : params.archived === false ? { archivedAt: null } : {}),
             ...(params.status ? { status: params.status } : {}),
             ...(params.qualified !== undefined ? { qualified: params.qualified } : {}),
